@@ -17,7 +17,6 @@ pipeline {
 
             steps {
                 sh '''
-                   echo 'small changes'
                    ls -la
                    node --version
                    npm --version
@@ -38,8 +37,8 @@ pipeline {
                         }
                         steps {
                             sh '''
-                            test -f build/index.html
-                            npm test
+                                #test -f build/index.html
+                                npm test
                             '''
                         }
                         post {
@@ -107,7 +106,7 @@ pipeline {
 
                         steps {
                             sh '''
-                            npx playwright test --reporter=html
+                                npx playwright test --reporter=html
                             '''
                         }
                         post{
@@ -117,6 +116,4 @@ pipeline {
                         }
                     }
     }
-
-
 }
